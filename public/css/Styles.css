@@ -1,0 +1,8 @@
+body{
+    background-image: url('../img/foto20.jpg');
+    background-size: 100%;
+}
+
+.banner{
+    background: rgba(19, 19, 19, 0.9);
+}
