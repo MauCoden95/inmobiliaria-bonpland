@@ -10,7 +10,7 @@
                 
                 <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Nosotros </a>
                 
-                <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Teams </a>
+                <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Buscar </a>
 
                 <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Privacy </a>
 

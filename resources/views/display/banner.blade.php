@@ -6,6 +6,12 @@
         <form class="w-full min-h-0 mt-5 flex items-center justify-evenly">
             <input type="text" class="text-base p-3" placeholder="Buscar...">
             <input type="text" class="text-base p-3" placeholder="Metros cuadrados">
+            <input type="text" class="text-base p-3" placeholder="Ciudad...">
+            <select name="select" class="text-base p-3">
+                <option value="">País</option>
+                <option value="argentina">Argentina</option>
+                <option value="uruguay">Uruguay</option>
+            </select>
             <select name="select" class="text-base p-3">
                 <option value="">Operación</option>
                 <option value="Venta">Venta</option>
@@ -28,17 +34,6 @@
                 <option value="4">4 Ambientes</option>
                 <option value="5">5 Ambientes</option>
                 <option value="6">6 Ambientes</option>
-            </select>
-            <select name="select" class="text-base p-3">
-                <option value="">País</option>
-                <option value="argentina">Argentina</option>
-                <option value="uruguay">Uruguay</option>
-            </select>
-            <select name="select" class="text-base p-3">
-                <option value="">Ciudad</option>
-                <option value="buenos aires">Buenos Aires</option>
-                <option value="santiago">Santiago</option>
-                <option value="bogota">Bogota</option>
             </select>
             <button>
                 <i class="fas fa-search text-white text-xl border-2 border-white p-3 rounded hover:bg-white hover:text-black"></i>

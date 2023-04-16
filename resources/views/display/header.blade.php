@@ -8,7 +8,7 @@
             <ul class="w-full h-full flex items-center justify-between">
                 <li><a href="#" class="hover:text-green-600">Inicio</a></li>
                 <li><a href="#" class="hover:text-green-600">Nosotros</a></li>
-                <li><a href="#" class="hover:text-green-600">Inicio</a></li>
+                <li><a href="http://127.0.0.1:8000/buscar" class="hover:text-green-600">Buscar</a></li>
                 <li><a href="#" class="hover:text-green-600">Inicio</a></li>
                 <li><a href="#" class="hover:text-green-600">Contacto</a></li>
             </ul>
