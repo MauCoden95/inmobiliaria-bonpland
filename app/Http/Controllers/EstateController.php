@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Estate;
 use Illuminate\Http\Request;
 
+
 class EstateController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    
+    
+
+     public function index()
     {
-        //
+        return Estate::paginate();
     }
 
     /**
@@ -28,7 +32,7 @@ class EstateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -61,5 +65,18 @@ class EstateController extends Controller
     public function destroy(Estate $estate)
     {
         //
+    }
+
+
+    public function detail($id)
+    {
+        $estate = Estate::find($id);
+
+        return view('detail', compact('estate'));
+    }
+
+    public function code($refer){
+        
+        return view('consultation', compact('refer'));
     }
 }

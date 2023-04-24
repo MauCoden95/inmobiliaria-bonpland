@@ -22,9 +22,36 @@
                         </h3>
                     @endif
 
+
+
                     <img class="w-full h-48 rounded-t" src="{{ asset('img/' . $featured->image) }}">
 
                     <div class="p-5">
+                        <h3 class="text-gray-500 text-center text-xl">Ref.: #{{ $featured->refer }}</h3>
+                        @if ($featured->state == 'Disponible')
+                            <h3 class="block text-xl py-1 my-3 text-center text-white bg-green-800">
+                                {{ $featured->state }}
+                            </h3>
+                        @endif
+
+                        @if ($featured->state == 'Alquilado')
+                            <h3 class="block text-xl py-1 my-3 text-center text-white bg-red-800">
+                                {{ $featured->state }}
+                            </h3>
+                        @endif
+
+                        @if ($featured->state == 'Reservado')
+                            <h3 class="block text-xl py-1 my-3 text-center text-white bg-orange-800">
+                                {{ $featured->state }}
+                            </h3>
+                        @endif
+
+                        @if ($featured->state == 'Vendido')
+                            <h3 class="block text-xl py-1 my-3 text-center text-white bg-red-800">
+                                {{ $featured->state }}
+                            </h3>
+                        @endif
+
                         <h5 class="mb-2 text-xl text-center font-bold tracking-tight text-gray-900">
                             {{ $featured->city }} | {{ $featured->country }}</h5>
                         <h5 class="mb-2 text-lg text-center font-bold tracking-tight text-gray-900">
@@ -41,6 +68,9 @@
                                 <i class="fas fa-ruler text-gray-700 text-xl ml-5"><span>
                                         {{ $featured->square_meters }} m2</span></i>
                             </div>
+
+
+
                             <button>
                                 <i class="fas fa-eye text-green-700 text-4xl mr-auto hover:text-green-900"></i>
                             </button>

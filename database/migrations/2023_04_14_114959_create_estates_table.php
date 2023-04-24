@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('square_meters');
             $table->integer('price');
             $table->string('operation');
+            $table->integer('refer');
+            $table->string('state')->nullable();
             $table->string('image');
             $table->timestamps();
         });

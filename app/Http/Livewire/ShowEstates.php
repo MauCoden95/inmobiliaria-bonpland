@@ -17,12 +17,25 @@ class ShowEstates extends Component
     public $max_square_meters = 50000000000;
     public $min_price = 0;
     public $max_price = 50000000000;
-    
+    public $country_city;
+    public $available = false;
+
+    public $state;
+
+    public function availability(){
+        if ($this->available == false) {
+            $this->state = "";
+        }else{
+            $this->state = "Disponible";
+        }
+    }
 
     public function render()
     {
-        $cities = Estate::pluck('city');
+        $cities = Estate::where('country','=',$this->country_city)->pluck('city');
         $city_unique = $cities->unique();
+
+       
 
         $estates = Estate::where('type','like','%'.$this->type.'%')
                            ->where('operation','like','%'.$this->operation.'%')
@@ -33,6 +46,7 @@ class ShowEstates extends Component
                            ->where('square_meters','<', $this->max_square_meters)
                            ->where('price','>', $this->min_price)
                            ->where('price','<', $this->max_price)
+                           ->where('state','like', '%'.$this->state.'%')
                            ->get();
 
         return view('livewire.show-estates', [

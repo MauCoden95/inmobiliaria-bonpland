@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,27 @@ Route::get('/buscar', function () {
     return view('search');
 });
 
+Route::get('/buscar-propiedades', function () {
+    return view('search-home');
+});
+
+Route::get('/contacto', function () {
+    return view('contact');
+});
+
+Route::get('/nosotros', function () {
+    return view('about');
+});
+
+Route::get('/buscar-propiedades', [EstateController::class,'index'])->name('index');
+
+Route::get('/listado', [EstateController::class, 'list'])->name('list');
+
+Route::get('/detalle/{Estate:id}', [EstateController::class, 'detail'])->name('detail');
+
+Route::get('/consultar/{Estate:refer}', [EstateController::class, 'code'])->name('code');
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,3 +52,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+

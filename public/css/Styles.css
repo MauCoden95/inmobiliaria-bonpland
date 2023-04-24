@@ -1,5 +1,7 @@
-body{
+body,
+#login{
     background-image: url('../img/foto20.jpg');
+    object-fit: cover;
     background-size: 100%;
 }
 

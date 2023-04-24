@@ -6,15 +6,13 @@
             </a>
 
             <div class="flex flex-wrap justify-center mt-6 -mx-4">
-                <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Inicio </a>
+                <a href="http://127.0.0.1:8000" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Inicio </a>
                 
-                <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Nosotros </a>
+                <a href="http://127.0.0.1:8000/nosotros" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Nosotros </a>
                 
-                <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Buscar </a>
+                <a href="http://127.0.0.1:8000/buscar" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Buscar </a>
 
-                <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Privacy </a>
-
-                <a href="#" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Contacto </a>
+                <a href="http://127.0.0.1:8000/contacto" class="mx-4 text-sm text-white transition-colors duration-300 hover:text-green-500 aria-label="Reddit"> Contacto </a>
             </div>
 
         </div>
@@ -25,13 +23,13 @@
             <p class="text-xl text-gray-500 dark:text-gray-300">© Bonpland 2021. Todos los derechos reservados.</p>
 
             <div class="flex -mx-2">
-               <a href="#" class="text-4xl text-white mr-5 hover:text-green-500">
+               <a href="#" class="text-4xl text-white mr-5 hover:text-yellow-500">
                     <i class="fab fa-facebook-square"></i>
                </a>
-               <a href="#" class="text-4xl text-white mr-5 hover:text-green-500">
+               <a href="#" class="text-4xl text-white mr-5 hover:text-yellow-500">
                     <i class="fab fa-linkedin"></i>
                </a>
-               <a href="#" class="text-4xl text-white mr-1 hover:text-green-500">
+               <a href="#" class="text-4xl text-white mr-1 hover:text-yellow-500">
                     <i class="fab fa-instagram-square"></i>
                </a>
             </div>

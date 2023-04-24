@@ -9,7 +9,7 @@
             <h1 class="text-3xl font-extrabold sm:text-5xl">
                 Somos Bonpland
 
-                <strong class="block font-extrabold text-green-700">
+                <strong class="block font-extrabold text-yellow-700">
                     Bienes raíces
                 </strong>
             </h1>
@@ -19,8 +19,8 @@
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4 text-center">
-                <a href="#"
-                    class="block w-full rounded bg-green-600 px-6 py-2 text-xl font-medium text-white shadow hover:bg-green-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
+                <a href="http://127.0.0.1:8000/nosotros"
+                    class="block w-full rounded bg-yellow-600 px-6 py-2 text-xl font-medium text-white shadow hover:bg-yellow-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
                     Conocénos
                 </a>
 

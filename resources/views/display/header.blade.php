@@ -6,11 +6,10 @@
 
         <nav class="w-3/5 h-full ">
             <ul class="w-full h-full flex items-center justify-between">
-                <li><a href="#" class="hover:text-green-600">Inicio</a></li>
-                <li><a href="#" class="hover:text-green-600">Nosotros</a></li>
-                <li><a href="http://127.0.0.1:8000/buscar" class="hover:text-green-600">Buscar</a></li>
-                <li><a href="#" class="hover:text-green-600">Inicio</a></li>
-                <li><a href="#" class="hover:text-green-600">Contacto</a></li>
+                <li><a href="http://127.0.0.1:8000" class="hover:text-yellow-600">Inicio</a></li>
+                <li><a href="http://127.0.0.1:8000/nosotros" class="hover:text-yellow-600">Nosotros</a></li>
+                <li><a href="http://127.0.0.1:8000/buscar" class="hover:text-yellow-600">Buscar</a></li>
+                <li><a href="http://127.0.0.1:8000/contacto" class="hover:text-yellow-600">Contacto</a></li>
             </ul>
         </nav>
     </div>
