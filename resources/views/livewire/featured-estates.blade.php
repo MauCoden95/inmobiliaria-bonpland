@@ -71,9 +71,11 @@
 
 
 
-                            <button>
-                                <i class="fas fa-eye text-green-700 text-4xl mr-auto hover:text-green-900"></i>
-                            </button>
+                            @if ($featured->state == 'Disponible')
+                                <a href="http://127.0.0.1:8000/detalle/{{ $featured->id }}" 
+                                    class="block ml-16 text-green-700 text-4xl float-right mr-auto hover:text-green-900"><i
+                                        class="fas fa-eye"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>

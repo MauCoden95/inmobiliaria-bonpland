@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estate;
+use Exception;
 use Illuminate\Http\Request;
+use DB;
 
 
 class EstateController extends Controller
@@ -11,10 +13,10 @@ class EstateController extends Controller
     /**
      * Display a listing of the resource.
      */
-    
-    
 
-     public function index()
+
+
+    public function index()
     {
         return Estate::paginate();
     }
@@ -32,7 +34,7 @@ class EstateController extends Controller
      */
     public function store(Request $request)
     {
-       
+
     }
 
     /**
@@ -46,25 +48,82 @@ class EstateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Estate $estate)
+    public function edit(Request $request)
     {
-        //
+        // $address = $request->input('address');
+        // $type = $request->input('type');
+        // $country = $request->input('country');
+        // $city = $request->input('city');
+        // $ambients = $request->input('ambients');
+        // $square_meters = $request->input('square_meters');
+        // $price = $request->input('price');
+        // $operation = $request->input('operation');
+
+        // $refer = $request->input('refer');
+
+
+        
+        // Estate::where('refer',$refer)->update(
+        //     [
+        //         'address' => $address,
+        //         'type' => $type,
+        //         'country' => $country,
+        //         'city' => $city,
+        //         'ambients' => $ambients,
+        //         'square_meters' => $square_meters,
+        //         'price' => $price,
+        //         'operation' => $operation
+        //     ]
+        // );
+
+        dd($request->input());
+
+        // if ($request->hasFile('img')) {
+        //     $file = $request->file('img');
+        //     $file->move(public_path() . '/img/', $file->getClientOriginalName());
+        // }
+
+        // Estate::where('refer',$request->refer)->update(
+        //     [
+        //         'address' => $request->get('address'),
+        //         'type' => $request->get('type'),
+        //         'country' => $request->get('country'),
+        //         'ambients' => $request->get('ambients'),
+        //         'square_meters' => $request->get('square_meters'),
+        //         'price' => $request->get('price'),
+        //         'operation' => $request->get('price'),
+        //         'state' => $request->get('state'),
+        //         'image' => $file->getClientOriginalName()
+                
+        //     ]
+        // );
+
+
+        //return back();
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Estate $estate)
+    public function update(Estate $estate)
     {
-        //
+       
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Estate $estate)
+    public function destroy(Request $request)
     {
-        //
+        $estate = Estate::where('refer','=', $request->input('refer'))->get();
+        //dd($estate);
+        Estate::where('refer','=', $request->input('refer'))->delete();
+        unlink(storage_path('app/public/img/'.$estate -> image));
+
+    
+        
+        //dd($estate->image);
+        return back()->with('success_destroy','Inmueble eliminado con exito!!!');
     }
 
 
@@ -75,8 +134,47 @@ class EstateController extends Controller
         return view('detail', compact('estate'));
     }
 
-    public function code($refer){
-        
+    public function code($refer)
+    {
+
         return view('consultation', compact('refer'));
+    }
+
+    public function insertar(Request $request)
+    {
+        //dd($request);
+        $refer = rand(1000,9999);
+        $state = "Disponible";
+        try {
+            DB::beginTransaction();
+            $estate = new Estate;
+            $estate->address = $request->get('address');
+            $estate->type = $request->get('type');
+            $estate->country = $request->get('country');
+            $estate->city = $request->get('city');
+            $estate->ambients = $request->get('ambients');
+            $estate->square_meters = $request->get('square_meters');
+            $estate->price = $request->get('price');
+            $estate->address = $request->get('address');
+            $estate->operation = $request->get('operation');
+            $estate->refer = $refer;
+            $estate->state = $state;
+
+            if ($request->hasFile('img')) {
+                $file = $request->file('img');
+                $file->move(public_path() . '/img/', $file->getClientOriginalName());
+                $estate->image = $file->getClientOriginalName();
+            }
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+        }
+
+
+        $estate->save();
+
+        //dd($estate);
+
+        return back()->with('success','Inmueble agregado con exito!!!');
     }
 }

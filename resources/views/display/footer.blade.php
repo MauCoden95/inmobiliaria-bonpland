@@ -20,7 +20,7 @@
         <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
 
         <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-            <p class="text-xl text-gray-500 dark:text-gray-300">© Bonpland 2021. Todos los derechos reservados.</p>
+            <p class="text-xl text-gray-500 dark:text-gray-300">© Bonpland 2023. Todos los derechos reservados.</p>
 
             <div class="flex -mx-2">
                <a href="#" class="text-4xl text-white mr-5 hover:text-yellow-500">

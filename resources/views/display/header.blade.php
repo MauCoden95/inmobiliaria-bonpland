@@ -1,6 +1,6 @@
 <header class="w-full h-24 bg-transparent">
     <div class="w-4/5 h-full m-auto flex items-center justify-between">
-        <a href="#">
+        <a href="http://127.0.0.1:8000">
             <img class="w-36" src="{{ asset('img/Logo.png') }}" alt="logo">
         </a>
 

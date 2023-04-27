@@ -42,6 +42,11 @@ Route::get('/detalle/{Estate:id}', [EstateController::class, 'detail'])->name('d
 
 Route::get('/consultar/{Estate:refer}', [EstateController::class, 'code'])->name('code');
 
+Route::post('createEstate', [EstateController::class, 'insertar']);
+
+Route::post('editEstate', [EstateController::class, 'update']);
+
+Route::post('deleteEstate', [EstateController::class, 'destroy']);
 
 Route::middleware([
     'auth:sanctum',

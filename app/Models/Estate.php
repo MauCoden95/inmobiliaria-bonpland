@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Estate extends Model
 {
     use HasFactory;
-    protected $fillable = ['address','type','country','city','ambients','square-meters','price','operation'];
+    protected $table = 'estates';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+    protected $fillable = ['address','type','country','city','ambients','square-meters','price','operation','image'];
 }
