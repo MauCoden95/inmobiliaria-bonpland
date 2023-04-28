@@ -113,16 +113,21 @@ class EstateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
-        $estate = Estate::where('refer','=', $request->input('refer'))->get();
-        //dd($estate);
-        Estate::where('refer','=', $request->input('refer'))->delete();
-        unlink(storage_path('app/public/img/'.$estate -> image));
-
-    
+        $estate = Estate::find($id);
+        $image = $estate->image;
+        $imagePath = public_path().'/img/';
+        $file = $imagePath.$image;
         
-        //dd($estate->image);
+        //dd($imagePath);
+
+        if (file_exists($file)) {
+            unlink($file);
+        }
+        $estate = Estate::where('id','=',$id)->delete();
+      
+
         return back()->with('success_destroy','Inmueble eliminado con exito!!!');
     }
 

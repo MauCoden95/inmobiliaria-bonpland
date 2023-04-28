@@ -46,7 +46,7 @@ Route::post('createEstate', [EstateController::class, 'insertar']);
 
 Route::post('editEstate', [EstateController::class, 'update']);
 
-Route::post('deleteEstate', [EstateController::class, 'destroy']);
+Route::post('destroy/{Estate:id}', [EstateController::class, 'destroy'])->name('destroy');
 
 Route::middleware([
     'auth:sanctum',

@@ -1,8 +1,10 @@
 body,
 #login{
     background-image: url('../img/foto20.jpg');
-    object-fit: cover;
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .banner{
