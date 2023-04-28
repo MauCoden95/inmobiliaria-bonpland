@@ -67,6 +67,16 @@
                                 m2<span></span></>
                         </div>
 
+
+
+                        
+
+                            <a href="http://127.0.0.1:8000/edit/{{ $estate->id }}">
+                                <img class="w-6" src="{{ asset('img/Edit.svg') }}">
+                            </a>
+
+                       
+
                         <form method="POST" action="/destroy/{{ $estate->id }}">
                             @csrf
                             @method('post')

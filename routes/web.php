@@ -48,6 +48,10 @@ Route::post('editEstate', [EstateController::class, 'update']);
 
 Route::post('destroy/{Estate:id}', [EstateController::class, 'destroy'])->name('destroy');
 
+Route::get('edit/{Estate:id}', [EstateController::class, 'edit'])->name('edit');
+
+Route::post('edit/{Estate:id}', [EstateController::class, 'update'])->name('update');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

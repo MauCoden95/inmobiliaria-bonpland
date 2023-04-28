@@ -48,66 +48,51 @@ class EstateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
-        // $address = $request->input('address');
-        // $type = $request->input('type');
-        // $country = $request->input('country');
-        // $city = $request->input('city');
-        // $ambients = $request->input('ambients');
-        // $square_meters = $request->input('square_meters');
-        // $price = $request->input('price');
-        // $operation = $request->input('operation');
+        $estate = Estate::find($id);
 
-        // $refer = $request->input('refer');
-
-
-        
-        // Estate::where('refer',$refer)->update(
-        //     [
-        //         'address' => $address,
-        //         'type' => $type,
-        //         'country' => $country,
-        //         'city' => $city,
-        //         'ambients' => $ambients,
-        //         'square_meters' => $square_meters,
-        //         'price' => $price,
-        //         'operation' => $operation
-        //     ]
-        // );
-
-        dd($request->input());
-
-        // if ($request->hasFile('img')) {
-        //     $file = $request->file('img');
-        //     $file->move(public_path() . '/img/', $file->getClientOriginalName());
-        // }
-
-        // Estate::where('refer',$request->refer)->update(
-        //     [
-        //         'address' => $request->get('address'),
-        //         'type' => $request->get('type'),
-        //         'country' => $request->get('country'),
-        //         'ambients' => $request->get('ambients'),
-        //         'square_meters' => $request->get('square_meters'),
-        //         'price' => $request->get('price'),
-        //         'operation' => $request->get('price'),
-        //         'state' => $request->get('state'),
-        //         'image' => $file->getClientOriginalName()
-                
-        //     ]
-        // );
-
-
-        //return back();
+        return view('edit',compact('id','estate'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Estate $estate)
+    public function update(Request $request, $id)
     {
-       
+        $id =  $request->input('id');
+        $estate = Estate::where('id','=',$id);
+        
+
+        $estate->update([
+            'city' => $request->input('city'),
+            'address' => $request->input('address'),
+            'type' => $request->input('type'),
+            'country' => $request->input('country'),
+            'ambients' => $request->input('ambients'),
+            'square_meters' => $request->input('square_meters'),
+            'price' => $request->input('price'),
+            'operation' => $request->input('operation'),
+            'state' => $request->input('state')
+        ]);
+
+        //dd($request->state);
+        
+
+        
+        // $image = $estate->image;
+        // $imagePath = public_path() . '/img/';
+        // $file = $imagePath . $image;
+
+        // if (file_exists($file)) {
+        //     unlink($file);
+        // }
+
+        // $file = $request->input('img');
+        // $file->move(public_path() . '/img/', $file->getClientOriginalName());
+        // $estate->image = $file->getClientOriginalName();
+
+        return back();
     }
 
     /**
@@ -117,18 +102,18 @@ class EstateController extends Controller
     {
         $estate = Estate::find($id);
         $image = $estate->image;
-        $imagePath = public_path().'/img/';
-        $file = $imagePath.$image;
-        
+        $imagePath = public_path() . '/img/';
+        $file = $imagePath . $image;
+
         //dd($imagePath);
 
         if (file_exists($file)) {
             unlink($file);
         }
-        $estate = Estate::where('id','=',$id)->delete();
-      
+        $estate = Estate::where('id', '=', $id)->delete();
 
-        return back()->with('success_destroy','Inmueble eliminado con exito!!!');
+
+        return back()->with('success_destroy', 'Inmueble eliminado con exito!!!');
     }
 
 
@@ -148,7 +133,7 @@ class EstateController extends Controller
     public function insertar(Request $request)
     {
         //dd($request);
-        $refer = rand(1000,9999);
+        $refer = rand(1000, 9999);
         $state = "Disponible";
         try {
             DB::beginTransaction();
@@ -180,6 +165,6 @@ class EstateController extends Controller
 
         //dd($estate);
 
-        return back()->with('success','Inmueble agregado con exito!!!');
+        return back()->with('success', 'Inmueble agregado con exito!!!');
     }
 }
