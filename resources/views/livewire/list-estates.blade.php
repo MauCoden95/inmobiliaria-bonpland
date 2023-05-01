@@ -69,23 +69,25 @@
 
 
 
-                        
 
+
+                        <div class="flex">
                             <a href="http://127.0.0.1:8000/edit/{{ $estate->id }}">
                                 <img class="w-6" src="{{ asset('img/Edit.svg') }}">
                             </a>
 
-                       
 
-                        <form method="POST" action="/destroy/{{ $estate->id }}">
-                            @csrf
-                            @method('post')
 
-                            <button class="text-2xl text-red-500 hover:text-red-800">
-                                <img class="w-6" src="{{ asset('img/Trash.svg') }}">
-                            </button>
+                            <form method="POST" action="/destroy/{{ $estate->id }}">
+                                @csrf
+                                @method('post')
 
-                        </form>
+                                <button class="text-2xl text-red-500 hover:text-red-800">
+                                    <img class="w-6 ml-3" src="{{ asset('img/Trash.svg') }}">
+                                </button>
+
+                            </form>
+                        </div>
 
 
 

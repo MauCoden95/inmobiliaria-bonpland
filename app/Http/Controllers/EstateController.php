@@ -64,7 +64,28 @@ class EstateController extends Controller
         $estate = Estate::where('id','=',$id);
         
 
-        $estate->update([
+        
+
+        $estateImg = Estate::find($id);
+
+        
+
+        $image = $estateImg->image;
+        $imagePath = public_path() . '/img/';
+        $file = $imagePath . $image;
+
+        
+
+        if (file_exists($file)) {
+            unlink($file);
+        }
+
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $file->move(public_path() . '/img/', $file->getClientOriginalName());
+           
+
+            $estate->update([
             'city' => $request->input('city'),
             'address' => $request->input('address'),
             'type' => $request->input('type'),
@@ -73,24 +94,12 @@ class EstateController extends Controller
             'square_meters' => $request->input('square_meters'),
             'price' => $request->input('price'),
             'operation' => $request->input('operation'),
-            'state' => $request->input('state')
+            'state' => $request->input('state'),
+            'image' => $file->getClientOriginalName()
         ]);
+        }
 
-        //dd($request->state);
-        
 
-        
-        // $image = $estate->image;
-        // $imagePath = public_path() . '/img/';
-        // $file = $imagePath . $image;
-
-        // if (file_exists($file)) {
-        //     unlink($file);
-        // }
-
-        // $file = $request->input('img');
-        // $file->move(public_path() . '/img/', $file->getClientOriginalName());
-        // $estate->image = $file->getClientOriginalName();
 
         return back();
     }
